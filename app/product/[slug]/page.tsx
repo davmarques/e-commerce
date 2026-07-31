@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   return {
     title: `${product.name} — Forma`,
-    description: product.description.slice(0, 160),
+    description: product.description?.slice(0, 160) || '',
   };
 }
 
@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </nav>
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <ProductGallery images={product.images} name={product.name} />
+          <ProductGallery images={product.images || []} name={product.name} />
           <ProductInfo product={product} />
         </div>
 

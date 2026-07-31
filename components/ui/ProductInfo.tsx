@@ -8,7 +8,7 @@ import { useCart } from "@/hooks/useCart";
 
 export function ProductInfo({ product }: { product: Product }) {
   const { addToCart } = useCart();
-  const [variant, setVariant] = useState(product.variants.options[0]);
+  const [variant, setVariant] = useState(product.variants?.options[0]);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
@@ -27,21 +27,23 @@ export function ProductInfo({ product }: { product: Product }) {
       <p className="mt-6 text-sm leading-relaxed text-muted-foreground">{product.description}</p>
 
       {/* Variantes */}
-      <div className="mt-8">
-        <p className="text-sm font-medium">{product.variants.label}</p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {product.variants.options.map((opt) => (
-            <button
-              key={opt}
-              onClick={() => setVariant(opt)}
-              className={`h-10 rounded-md border px-4 text-sm transition-colors ${variant === opt ? "border-foreground bg-foreground text-background" : "border-border hover:bg-secondary cursor-pointer"
-                }`}
-            >
-              {opt}
-            </button>
-          ))}
+      {product.variants && (
+        <div className="mt-8">
+          <p className="text-sm font-medium">{product.variants.label}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {product.variants.options.map((opt) => (
+              <button
+                key={opt}
+                onClick={() => setVariant(opt)}
+                className={`h-10 rounded-md border px-4 text-sm transition-colors ${variant === opt ? "border-foreground bg-foreground text-background" : "border-border hover:bg-secondary cursor-pointer"
+                  }`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <QuantitySelector qty={qty} onChange={setQty} />
 
@@ -53,14 +55,16 @@ export function ProductInfo({ product }: { product: Product }) {
       </button>
 
       {/* Detalhes Técnicos */}
-      <div className="mt-10 border-t border-border pt-8">
-        <h2 className="font-display text-sm font-semibold uppercase tracking-widest">Detalhes</h2>
-        <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-          {product.details.map((d) => (
-            <li key={d} className="flex gap-2"><span className="text-foreground">—</span>{d}</li>
-          ))}
-        </ul>
-      </div>
+      {product.details && product.details.length > 0 && (
+        <div className="mt-10 border-t border-border pt-8">
+          <h2 className="font-display text-sm font-semibold uppercase tracking-widest">Detalhes</h2>
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            {product.details.map((d) => (
+              <li key={d} className="flex gap-2"><span className="text-foreground">—</span>{d}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
