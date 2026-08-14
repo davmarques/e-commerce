@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/features/cart/hooks/useCart";
 import { X, ShoppingBag } from "lucide-react";
 import { formatPrice } from "@/app/utils/formatPrice";
 import Link from "next/link";

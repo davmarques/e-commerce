@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Button } from "./Button"; // Supondo que você tenha esse componente em components/ui
+import { Button } from "../../ui/Button";
 
 export default function Hero() {
     return (

@@ -1,8 +1,8 @@
 // frontend/app/about/page.tsx
 import { Metadata } from "next";
 import Footer from "@/components/layout/Footer";
-import { AboutHero } from "@/components/layout/AboutHero";
-import { AboutValues } from "@/components/layout/AboutValues";
+import { AboutHero } from "@/components/features/about/AboutHero";
+import { AboutValues } from "@/components/features/about/AboutValues";
 
 export const metadata: Metadata = {
   title: "Sobre — Forma",

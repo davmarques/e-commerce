@@ -2,7 +2,7 @@
 
 import { Minus, Plus, X } from "lucide-react";
 import { formatPrice } from "@/app/utils/formatPrice";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/features/cart/hooks/useCart";
 
 export function CartItem({ item }: { item: any }) {
   const { removeFromCart, updateQuantity } = useCart();

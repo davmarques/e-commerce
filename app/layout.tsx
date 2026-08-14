@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import {Outfit, Figtree, Geist } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/contexts/CardContext";
+import { CartProvider } from "@/providers/CardContext";
+import { AuthProvider } from "@/providers/AuthContext";
+import { WishlistProvider } from "@/providers/WishlistContext";
 
 
 import Header from "@/components/layout/Header";
@@ -37,13 +39,17 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={cn(outfit.variable, figtree.variable, "font-sans", geist.variable)}>
       <body className="antialiased">
-        <CartProvider>
-          <Header />
-          <main>
-            {children}
-          </main>
-         {/*  <Footer /> */}
-        </CartProvider>
+        <AuthProvider>
+          <WishlistProvider>
+            <CartProvider>
+              <Header />
+              <main>
+                {children}
+              </main>
+             {/*  <Footer /> */}
+            </CartProvider>
+          </WishlistProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -4,8 +4,8 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { CartItem } from "@/components/ui/CartItem";
-import { useCart } from "@/hooks/useCart";
+import { CartItem } from "@/components/features/cart/CartItem";
+import { useCart } from "@/features/cart/hooks/useCart";
 
 export default function CartPage() {
     const { cart, cartTotal } = useCart();

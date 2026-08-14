@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { CartContext } from "@/contexts/CardContext"; // Ajuste se o caminho mudar
+import { CartContext } from "@/providers/CardContext";
 
 export function useCart() {
   const context = useContext(CartContext);

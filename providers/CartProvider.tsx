@@ -1,4 +1,4 @@
-import { CartProvider } from "@/contexts/CardContext";
+import { CartProvider } from "@/providers/CardContext";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

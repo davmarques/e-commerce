@@ -1,6 +1,6 @@
-import ProductCard from "@/components/ui/ProductCard";
+import ProductCard from "@/components/features/products/ProductCard";
 import { Product } from "@/app/types/product";
-import { Button } from "../ui/Button"; // Importando o Button que criamos
+import { Button } from "../../ui/Button";
 import Link from "next/link";
 
 interface FeaturedProductsProps {
