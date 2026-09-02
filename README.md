@@ -1,38 +1,66 @@
 # E-commerce Frontend
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Interface web da loja, construída com Next.js e React. O projeto reúne as páginas de catálogo, produto, coleções, carrinho, checkout, pedidos, conta, favoritos e serviços.
 
-## Getting Started
+## Requisitos
 
-First, run the development server:
+- Node.js 20 ou superior
+- npm 10 ou superior
+
+## Desenvolvimento
+
+Na pasta `frontend`, instale as dependências e inicie o servidor:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Como o frontend usa dados locais neste momento, não é necessário configurar variáveis de ambiente para executar a interface básica. O catálogo inicial está em [`lib/products.ts`](lib/products.ts).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+| Comando | Descrição |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento com atualização automática |
+| `npm run build` | Gera a build de produção |
+| `npm start` | Executa a build de produção |
+| `npm run lint` | Executa o ESLint |
 
-To learn more about Next.js, take a look at the following resources:
+## Estrutura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+app/          Rotas e páginas do App Router
+components/   Componentes compartilhados de layout e interface
+features/     Componentes e lógica agrupados por domínio
+lib/          Dados locais e utilitários
+providers/    Contextos de autenticação, carrinho e favoritos
+public/       Imagens e outros arquivos estáticos
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Principais rotas:
 
-## Deploy on Vercel
+- `/` - página inicial
+- `/collections` - coleções e catálogo
+- `/product/[slug]` - detalhes do produto
+- `/cart` e `/checkout` - compra
+- `/account`, `/orders` e `/wishlist` - área do cliente
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Qualidade
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Antes de abrir uma alteração, execute:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Tecnologias
+
+- [Next.js](https://nextjs.org/) 16 com App Router
+- [React](https://react.dev/) 19
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/) para ícones
+- [Framer Motion](https://motion.dev/) para animações

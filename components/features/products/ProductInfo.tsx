@@ -49,7 +49,7 @@ export function ProductInfo({ product }: { product: Product }) {
           aria-label={favorite ? "Remover dos favoritos" : "Adicionar aos favoritos"}
           className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground hover:text-foreground cursor-pointer"
         >
-          <Heart className={`h-5 w-5 ${favorite ? "fill-foreground text-foreground" : ""}`} />
+          <Heart className={`h-5 w-5 ${favorite ? "fill-secondary text-secondary" : ""}`} />
         </button>
       </div>
       <p className="mt-4 text-2xl font-medium">{formatPrice(product.price)}</p>
@@ -82,15 +82,6 @@ export function ProductInfo({ product }: { product: Product }) {
           className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 cursor-pointer sm:flex-1"
         >
           {added ? "Adicionado" : `Comprar — ${formatPrice(product.price * qty)}`}
-        </button>
-
-        <button
-          type="button"
-          onClick={() => void handleToggleFavorite()}
-          className={`inline-flex h-12 items-center justify-center gap-2 rounded-md border px-6 text-sm font-medium transition-colors cursor-pointer sm:min-w-52 ${favorite ? "border-foreground bg-secondary text-foreground" : "border-border text-foreground hover:bg-secondary"}`}
-        >
-          <Heart className={`h-4 w-4 ${favorite ? "fill-foreground" : ""}`} />
-          {favorite ? "Nos favoritos" : "Adicionar aos favoritos"}
         </button>
       </div>
 

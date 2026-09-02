@@ -83,16 +83,16 @@ export function AuthForm({
                             required
                         />
 
-                        <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-black/70">
+                        <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-white/70">
                             <input
                                 type="checkbox"
                                 name="accept-terms"
                                 checked={acceptedTerms}
                                 onChange={(event) => onAcceptedTermsChange(event.target.checked)}
-                                className="h-4 w-4 border-black/30 accent-black focus:ring-black"
+                                className="h-4 w-4 border-white/30 accent-brand-primary focus:ring-brand-primary"
                                 required
                             />
-                            Li e concordo com os termos e politica de privacidade.
+                            Li e concordo com os termos e política de privacidade.
                         </label>
                     </>
                 )}
@@ -101,13 +101,13 @@ export function AuthForm({
                     type="submit"
                     size="lg"
                     disabled={isSubmitting || (isSignUp && !acceptedTerms)}
-                    className="mt-2 w-full rounded-xl bg-black text-white hover:bg-black/90"
+                    className="mt-2 w-full rounded-xl bg-primary text-white hover:bg-primary/90 shadow-lg shadow-brand-primary/20 font-medium cursor-pointer"
                 >
                     {isSubmitting ? (isSignUp ? "Criando conta..." : "Entrando...") : (isSignUp ? "Criar conta" : "Entrar")}
                 </Button>
 
                 {feedback && (
-                    <p className="rounded-xl border border-black/10 bg-[#F3F3F3] px-4 py-3 text-sm text-black/70">
+                    <p className="rounded-xl border border-white/10 bg-surface px-4 py-3 text-sm text-white/80">
                         {feedback}
                     </p>
                 )}

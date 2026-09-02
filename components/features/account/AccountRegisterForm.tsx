@@ -37,7 +37,7 @@ export function AccountRegisterForm({
 }: AccountRegisterFormProps) {
 	return (
 		<form onSubmit={onSubmit} className="mt-8 space-y-4">
-			<h2 className="font-outfit text-2xl text-black">Cadastro</h2>
+			<h2 className="font-outfit text-2xl text-white font-bold">Cadastro</h2>
 			<Input
 				value={registerName}
 				onChange={(event) => onRegisterNameChange(event.target.value)}
@@ -67,33 +67,33 @@ export function AccountRegisterForm({
 				type="password"
 				placeholder="Confirme sua senha"
 				autoComplete="new-password"
-				error={registerPasswordMismatch ? "As senhas nao coincidem." : undefined}
+				error={registerPasswordMismatch ? "As senhas não coincidem." : undefined}
 				required
 			/>
 
-			<label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-black/70">
+			<label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-white/70">
 				<input
 					type="checkbox"
 					name="accept-terms"
 					checked={registerAcceptedTerms}
 					onChange={(event) => onRegisterAcceptedTermsChange(event.target.checked)}
-					className="h-4 w-4 border-black/30 accent-black focus:ring-black"
+					className="h-4 w-4 border-white/30 accent-brand-primary focus:ring-brand-primary"
 					required
 				/>
-				Li e concordo com os termos e politica de privacidade.
+				Li e concordo com os termos e política de privacidade.
 			</label>
 
 			<Button
 				type="submit"
 				size="lg"
 				disabled={isRegistering || !registerAcceptedTerms || registerPasswordMismatch}
-				className="w-full rounded-xl bg-black text-white hover:bg-black/90"
+				className="w-full rounded-xl bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg shadow-brand-primary/20 font-medium cursor-pointer"
 			>
 				{isRegistering ? "Criando conta..." : "Criar conta"}
 			</Button>
 
 			{registerFeedback ? (
-				<p className="rounded-xl border border-black/10 bg-[#F3F3F3] px-4 py-3 text-sm text-black/70">
+				<p className="rounded-xl border border-white/10 bg-brand-dark px-4 py-3 text-sm text-white/80">
 					{registerFeedback}
 				</p>
 			) : null}

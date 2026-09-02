@@ -87,22 +87,22 @@ function CollectionsContent() {
 
     return (
         <main>
-            <header className="border-b border-black/10 px-4 md:px-20">
+            <header className="border-b border-white/10 px-4 md:px-20">
                 <div className="container-tight py-16 lg:py-24 px-4">
-                    <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+                    <p className="text-sm font-medium uppercase tracking-widest text-brand-primary">
                         A Coleção
                     </p>
-                    <h1 className="mt-4 max-w-2xl font-display text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+                    <h1 className="mt-4 max-w-2xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
                         Cada objeto, pensado.
                     </h1>
-                    <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-                        Uma curadoria de itens essenciais para a casa, feitos para durar.
+                    <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70">
+                        Uma curadoria de itens essenciais, feitos para durar.
                     </p>
                 </div>
             </header>
 
             <section className="container-tight">
-                <div className="flex flex-col gap-6 border-b border-black/10 py-6 sm:flex-row sm:items-center sm:justify-between px-4 md:px-20">
+                <div className="flex flex-col gap-6 border-b border-white/10 py-6 sm:flex-row sm:items-center sm:justify-between px-4 md:px-20">
                     <CategoryFilters
                         categories={categories}
                         activeCategory={category}

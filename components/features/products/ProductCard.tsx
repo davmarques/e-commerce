@@ -21,7 +21,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     return (
         <Link href={`/product/${product.slug}`} className="group">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#F3F3F3]">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-brand-surface border border-white/10 shadow-lg">
                 <button
                     type="button"
                     aria-label={favorite ? "Remover dos favoritos" : "Adicionar aos favoritos"}
@@ -36,9 +36,9 @@ export default function ProductCard({ product }: ProductCardProps) {
 
                         void toggleFavorite(product);
                     }}
-                    className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/90 text-black/60 shadow-sm backdrop-blur transition-colors hover:text-black cursor-pointer"
+                    className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-brand-dark/80 text-white/70 shadow-sm backdrop-blur transition-colors hover:text-white cursor-pointer"
                 >
-                    <Heart className={`h-5 w-5 ${favorite ? "fill-black text-black" : ""}`} />
+                    <Heart className={`h-5 w-5 ${favorite ? "fill-secondary text-secondary" : ""}`} />
                 </button>
                 <Image
                     src={product.images?.[0] || "/placeholder.png"}
@@ -51,13 +51,13 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
             <div className="mt-4 flex flex-col items-center">
                 <div className="flex-1 text-start w-full">
-                    <h3 className="text-lg font-semibold font-outfit text-black">{product.name}</h3>
+                    <h3 className="text-lg font-semibold font-outfit text-white group-hover:text-brand-primary transition-colors">{product.name}</h3>
                 </div>
                 <div className="flex flex-row items-end justify-between w-full">
-                    <span className="text-sm text-black/40 font-figtree">
+                    <span className="text-sm text-white/50 font-figtree">
                         {getCategoryName(product.category)}
                     </span>
-                    <p className="text-lg font-outfit mt-1">{formatPrice(product.price)}</p>
+                    <p className="text-lg font-outfit font-semibold text-white mt-1">{formatPrice(product.price)}</p>
                 </div>
             </div>
         </Link>
