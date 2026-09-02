@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const product = normalizeProduct(productData);
 
   return {
-    title: `${product.name} — Forma`,
+    title: `${product.name} — STORMS development`,
     description: product.description?.slice(0, 160) || '',
   };
 }
@@ -41,20 +41,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="container-tight py-10 lg:py-16 px-4 md:px-20">
-        <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground">
-          <Link href="/" className="transition-colors hover:text-foreground">
+        <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-xs uppercase tracking-widest text-white/60">
+          <Link href="/" className="transition-colors hover:text-brand-primary">
             Início
           </Link>
 
-          <span role="presentation" className="text-black/20 text-lg">/</span>
+          <span role="presentation" className="text-white/20 text-lg">|</span>
 
-          <Link href="/collections" className="transition-colors hover:text-foreground">
+          <Link href="/collections" className="transition-colors hover:text-brand-primary">
             {getCategoryName(product.category)}
           </Link>
 
-          <span role="presentation" className="text-black/20 text-lg">/</span>
+          <span role="presentation" className="text-white/20 text-lg">|</span>
 
-          <span className="text-foreground font-medium truncate" aria-current="page">
+          <span className="text-white font-medium truncate" aria-current="page">
             {product.name}
           </span>
         </nav>

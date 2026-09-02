@@ -4,18 +4,23 @@ module.exports = {
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./features/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
         extend: {
             colors: {
                 brand: {
-                    background: '#FAF7F2', // Off-white areia
-                    text: '#2D2B2A',       // Marrom/cinza escuro
-                    secondary: '#D4C5B9',  // Tom de bege/linho (ótimo para bordas e inputs)
-                    // Escolha abaixo uma delas ou use ambas como 'primary' e 'accent'
-                    cta: '#4A5D4E',        // Verde sálvia/oliva para botões principais
-                    terracotta: '#A37B63', // Terracota alternativo
+                    background: '#000932', // Azul Escuro de Fundo
+                    text: '#FFFFFF',       // Branco (Tipografia principal)
+                    primary: '#009BFF',    // Azul Ciano / Neon
+                    cyan: '#009BFF',       // Azul Ciano / Neon
+                    secondary: '#E8368F',  // Rosa / Magenta
+                    magenta: '#E8368F',    // Rosa / Magenta
+                    purple: '#9C42B3',     // Roxo / Violeta
+                    accent: '#9C42B3',     // Roxo / Violeta
+                    dark: '#000932',       // Azul Escuro
+                    surface: '#00124F',    // Superfície / Card
                 },
             },
             fontFamily: {

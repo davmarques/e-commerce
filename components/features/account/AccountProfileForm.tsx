@@ -79,7 +79,7 @@ export function AccountProfileForm({
 }: AccountProfileFormProps) {
 	return (
 		<form onSubmit={onSubmit} className="mt-8 space-y-4">
-			<h2 className="font-outfit text-2xl text-black">Dados cadastrais</h2>
+			<h2 className="font-outfit text-2xl text-white font-bold">Dados cadastrais</h2>
 			<div className="grid gap-4 md:grid-cols-2">
 				<Input
 					value={name}
@@ -111,47 +111,47 @@ export function AccountProfileForm({
 			</div>
 
 			{savedAddresses.length > 0 ? (
-				<div className="rounded-2xl border border-black/10  p-4">
-					<h3 className="font-outfit text-xl text-black">Endereços</h3>
+				<div className="rounded-2xl border border-white/10 bg-brand-dark p-4">
+					<h3 className="font-outfit text-xl text-white font-semibold">Endereços</h3>
 					<div className="mt-3 space-y-3">
 						{savedAddresses.map((address, index) => (
 							<button
 								type="button"
 								key={`${address.key}-${index}`}
 								onClick={() => onSelectActiveAddress(address.key)}
-								className={`w-full rounded-xl border p-3 text-left text-sm transition ${activeAddressKey === address.key
-										? "border-black text-black"
-										: "border-black/10 bg-white text-black/75 hover:border-black/30"
+								className={`w-full rounded-xl border p-3 text-left text-sm transition cursor-pointer ${activeAddressKey === address.key
+										? "border-brand-primary bg-brand-surface text-white ring-1 ring-brand-primary"
+										: "border-white/10 bg-brand-surface/50 text-white/75 hover:border-white/30"
 									}`}
 							>
 								<div className="mb-2 flex items-center justify-between">
-									<p className="font-medium">
+									<p className="font-medium text-white">
 										{address.street}, {address.number}
 									</p>
 									{activeAddressKey === address.key ? (
-										<span className="rounded-full border border-white/35 px-2 py-1 text-xs">Ativo</span>
+										<span className="rounded-full border border-brand-primary bg-brand-primary/20 text-brand-primary px-2 py-1 text-xs font-semibold">Ativo</span>
 									) : (
-										<span className="rounded-full border border-black/20 px-2 py-1 text-xs">Selecionar</span>
+										<span className="rounded-full border border-white/20 px-2 py-1 text-xs text-white/60">Selecionar</span>
 									)}
 								</div>
-								<p>
+								<p className="text-white/70">
 									{address.neighborhood} - {address.city}/{address.state}
 								</p>
-								<p>CEP: {address.zipCode}</p>
-								{address.complement ? <p>Complemento: {address.complement}</p> : null}
+								<p className="text-white/50 text-xs mt-1">CEP: {address.zipCode}</p>
+								{address.complement ? <p className="text-white/50 text-xs">Complemento: {address.complement}</p> : null}
 							</button>
 						))}
 					</div>
 				</div>
 			) : null}
 
-			<div className="rounded-2xl border border-black/10">
+			<div className="rounded-2xl border border-white/10 bg-brand-dark">
 				<details className="group" open={false}>
-					<summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-outfit text-xl text-black [&::-webkit-details-marker]:hidden">
-						Novo endereco
-						<span className="text-sm text-black/60 transition-transform group-open:rotate-180"><ArrowDownIcon className="h-4 w-4" /></span>
+					<summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-outfit text-xl text-white [&::-webkit-details-marker]:hidden">
+						Novo endereço
+						<span className="text-sm text-white/60 transition-transform group-open:rotate-180"><ArrowDownIcon className="h-4 w-4" /></span>
 					</summary>
-					<div className="grid gap-4 border-t border-black/10 px-4 py-4 md:grid-cols-2">
+					<div className="grid gap-4 border-t border-white/10 px-4 py-4 md:grid-cols-2">
 						<Input
 							value={zipCode}
 							onChange={(event) => onZipCodeChange(event.target.value)}
@@ -169,7 +169,7 @@ export function AccountProfileForm({
 						<Input
 							value={number}
 							onChange={(event) => onNumberChange(event.target.value)}
-							placeholder="Numero"
+							placeholder="Número"
 							autoComplete="address-line2"
 						/>
 						<Input
@@ -203,21 +203,19 @@ export function AccountProfileForm({
 				</details>
 			</div>
 
-			{isLoadingZipCode ? <p className="text-sm text-black/55">Buscando endereco pelo CEP...</p> : null}
-
-
+			{isLoadingZipCode ? <p className="text-sm text-white/60">Buscando endereço pelo CEP...</p> : null}
 
 			<Button
 				type="submit"
 				size="lg"
 				disabled={isSavingProfile}
-				className="w-full rounded-xl bg-black text-white hover:bg-black/90"
+				className="w-full rounded-xl bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg shadow-brand-primary/20 font-medium cursor-pointer"
 			>
 				{isSavingProfile ? "Salvando..." : "Salvar alterações"}
 			</Button>
 
 			{profileFeedback ? (
-				<p className="rounded-xl border border-black/10 bg-[#F3F3F3] px-4 py-3 text-sm text-black/70">
+				<p className="rounded-xl border border-white/10 bg-brand-dark px-4 py-3 text-sm text-white/80">
 					{profileFeedback}
 				</p>
 			) : null}

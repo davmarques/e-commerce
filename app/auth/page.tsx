@@ -67,36 +67,36 @@ export default function AuthPage() {
 
 	return (
 		<div className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-background px-4 py-10 md:px-20 md:py-14">
-			
 
-				<div className=" md:w-1/2 mx-auto rounded-3xl border border-black/10 bg-white p-6 shadow-sm md:p-8">
-						<AuthModeToggle
-							mode={mode}
-							onModeChange={(nextMode) => {
-								setMode(nextMode);
-								setAcceptedTerms(false);
-								setFeedback(null);
-							}}
-						/>
 
-						<AuthForm
-							mode={mode}
-							fullName={fullName}
-							email={email}
-							password={password}
-							confirmPassword={confirmPassword}
-							acceptedTerms={acceptedTerms}
-							passwordMismatch={passwordMismatch}
-							feedback={feedback}
-							onFullNameChange={setFullName}
-							onEmailChange={setEmail}
-							onPasswordChange={setPassword}
-							onConfirmPasswordChange={setConfirmPassword}
-							onAcceptedTermsChange={setAcceptedTerms}
-							isSubmitting={isSubmitting || isLoading}
-							onSubmit={handleSubmit}
-						/>
-				</div>
+			<div className="md:w-1/2 mx-auto rounded-3xl border border-white/10 bg-brand-surface p-6 shadow-2xl md:p-8">
+				<AuthModeToggle
+					mode={mode}
+					onModeChange={(nextMode) => {
+						setMode(nextMode);
+						setAcceptedTerms(false);
+						setFeedback(null);
+					}}
+				/>
+
+				<AuthForm
+					mode={mode}
+					fullName={fullName}
+					email={email}
+					password={password}
+					confirmPassword={confirmPassword}
+					acceptedTerms={acceptedTerms}
+					passwordMismatch={passwordMismatch}
+					feedback={feedback}
+					onFullNameChange={setFullName}
+					onEmailChange={setEmail}
+					onPasswordChange={setPassword}
+					onConfirmPasswordChange={setConfirmPassword}
+					onAcceptedTermsChange={setAcceptedTerms}
+					isSubmitting={isSubmitting || isLoading}
+					onSubmit={handleSubmit}
+				/>
+			</div>
 		</div>
 	);
 }

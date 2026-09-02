@@ -1,4 +1,8 @@
 // components/layout/AboutValues.tsx
+"use client";
+
+import { useBranding } from "@/providers/BrandingProvider";
+
 const VALUES = [
   {
     title: "Mínimo por intenção",
@@ -15,14 +19,21 @@ const VALUES = [
 ];
 
 export function AboutValues() {
+  const branding = useBranding();
+  const values = [
+    { title: branding?.about_value_1_title || VALUES[0].title, description: branding?.about_value_1_text || VALUES[0].description },
+    { title: branding?.about_value_2_title || VALUES[1].title, description: branding?.about_value_2_text || VALUES[1].description },
+    { title: branding?.about_value_3_title || VALUES[2].title, description: branding?.about_value_3_text || VALUES[2].description },
+  ];
+
   return (
-    <section className="border-y border-border bg-secondary">
+    <section className="border-y border-border bg-background">
       <div className="container-tight py-16 lg:py-24 px-4 md:px-20">
         <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-          Nossos valores
+          {branding?.about_values_title || "Nossos valores"}
         </h2>
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {VALUES.map((value) => (
+          {values.map((value) => (
             <div key={value.title}>
               <h3 className="font-display text-lg font-medium">{value.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

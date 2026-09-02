@@ -12,9 +12,9 @@ export function CategoryFilters({ categories, activeCategory, onSelect }: Catego
           key={c}
           type="button"
           onClick={() => onSelect(c)}
-          className={`h-9 rounded-full border border-black/10 px-4 text-sm transition-colors cursor-pointer ${c === activeCategory
-              ? "border-primary border-black/50 bg-primary text-primary-foreground"
-              : "border-border bg-background text-muted-foreground hover:text-foreground"
+          className={`h-9 rounded-full px-4 text-sm transition-all cursor-pointer ${c === activeCategory
+              ? "bg-brand-primary text-white font-semibold shadow-md shadow-brand-primary/20"
+              : "border border-white/15 bg-brand-surface text-white/70 hover:text-white hover:border-white/30"
             }`}
         >
           {c}

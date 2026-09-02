@@ -9,17 +9,17 @@ export default function AccountPageScreen() {
 
 	return (
 		<section className="min-h-[calc(100vh-80px)] bg-background px-4 py-10 md:px-20 md:py-14">
-			<div className="mx-auto max-w-4xl rounded-3xl border border-black/10 bg-white p-8 shadow-sm">
-				<p className="text-xs uppercase tracking-[0.3em] text-black/40">Area do cliente</p>
-				<h1 className="mt-3 font-outfit text-3xl text-black md:text-5xl">Minha Conta</h1>
-				<p className="mt-4 max-w-2xl text-sm leading-7 text-black/65 md:text-base">
+			<div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-brand-surface p-8 shadow-xl">
+				<p className="text-xs uppercase tracking-[0.3em] text-brand-primary font-semibold">Área do cliente</p>
+				<h1 className="mt-3 font-outfit text-3xl text-white font-bold md:text-5xl">Minha Conta</h1>
+				<p className="mt-4 max-w-2xl text-sm leading-7 text-white/70 md:text-base">
 					{account.isAuthenticated
 						? "Atualize seus dados cadastrais e mantenha sua conta sempre em dia."
 						: "Crie sua conta para salvar pedidos, favoritos e editar seus dados quando quiser."}
 				</p>
 
 				{account.isLoading ? (
-					<div className="mt-8 rounded-2xl border border-black/10 bg-[#F3F3F3] p-4 text-sm text-black/60">
+					<div className="mt-8 rounded-2xl border border-white/10 bg-brand-dark p-4 text-sm text-white/60">
 						Carregando dados da conta...
 					</div>
 				) : null}
