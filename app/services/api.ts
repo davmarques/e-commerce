@@ -148,35 +148,47 @@ async function parseJsonSafely<T>(res: Response): Promise<T | null> {
 }
 
 export async function fetchProducts() {
-  const res = await fetch(`${API_URL}/products`, {
-    cache: 'no-store',
-    headers: buildHeaders(),
-  });
-  if (!res.ok) throw new Error('Falha ao carregar produtos');
+  try {
+    const res = await fetch(`${API_URL}/products`, {
+      cache: 'no-store',
+      headers: buildHeaders(),
+    });
+    if (!res.ok) return [];
 
-  const data = await parseJsonSafely<unknown[]>(res);
-  return Array.isArray(data) ? data : [];
+    const data = await parseJsonSafely<unknown[]>(res);
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
 }
 
 export async function fetchProductBySlug(slug: string) {
-  const res = await fetch(`${API_URL}/products/${slug}`, {
-    cache: 'no-store',
-    headers: buildHeaders(),
-  });
-  if (!res.ok) return null;
+  try {
+    const res = await fetch(`${API_URL}/products/${slug}`, {
+      cache: 'no-store',
+      headers: buildHeaders(),
+    });
+    if (!res.ok) return null;
 
-  return parseJsonSafely<Record<string, unknown>>(res);
+    return parseJsonSafely<Record<string, unknown>>(res);
+  } catch {
+    return null;
+  }
 }
 
 export async function fetchCategories(): Promise<ApiCategory[]> {
-  const res = await fetch(`${API_URL}/categories`, {
-    cache: 'no-store',
-    headers: buildHeaders(),
-  });
-  if (!res.ok) throw new Error('Falha ao carregar categorias');
+  try {
+    const res = await fetch(`${API_URL}/categories`, {
+      cache: 'no-store',
+      headers: buildHeaders(),
+    });
+    if (!res.ok) return [];
 
-  const data = await parseJsonSafely<ApiCategory[]>(res);
-  return Array.isArray(data) ? data : [];
+    const data = await parseJsonSafely<ApiCategory[]>(res);
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
 }
 
 export async function fetchStoreBranding(): Promise<StoreBranding | null> {
